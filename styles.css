@@ -90,17 +90,24 @@ header.scrolled .logo {
 
 .logo-center {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: #ffffff;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    margin: 0 3rem;
+    margin: 0 1rem;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+@media (min-width: 1024px) {
+    .logo-center {
+        font-size: 3.5rem;
+        margin: 0 3rem;
+    }
 }
 
 .logo-center::before {
@@ -174,6 +181,12 @@ header.scrolled .logo-center a {
     }
 }
 
+@media (min-width: 1024px) {
+    .nav-toggle {
+        display: none;
+    }
+}
+
 .nav-toggle span {
     display: block;
     width: 25px;
@@ -198,6 +211,26 @@ header.scrolled .nav-toggle span {
     padding: 80px 2rem;
     transition: var(--transition);
     box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .nav-links {
+        display: flex;
+        position: static;
+        width: auto;
+        height: 80px;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -223,6 +256,18 @@ header.scrolled .nav-toggle span {
 .nav-links li {
     list-style: none;
     margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .nav-links li {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -236,18 +281,31 @@ header.scrolled .nav-toggle span {
 
 .nav-links a {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 400;
-    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-size: 0.8rem;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
     position: relative;
     display: flex;
     align-items: center;
-    height: 100%;
-    opacity: 0.8;
+    height: auto;
+    opacity: 1;
+    padding: 0.5rem 0;
+}
+
+@media (min-width: 1024px) {
+    .nav-links a {
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 400;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        height: 100%;
+        opacity: 0.8;
+        padding: 0;
+    }
 }
 
 @media (min-width: 1024px) {
