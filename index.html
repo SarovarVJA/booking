@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience modern comfort and Vijayawada charm at Soho - VJA Digital Gateway. Book your stay in our luxurious Queen and King rooms.">
+    <title>Soho - VJA Digital Gateway | Modern Comfort, Vijayawada Charm</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div style="text-align: center; padding: 10px; background: #ff6b6b; color: white;">
+            <button onclick="simpleTest()" style="padding: 10px 20px; background: white; color: #ff6b6b; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">Simple Test</button>
+            <button onclick="openGoogleSearch('Sarovar Mess')" style="padding: 10px 20px; background: white; color: #ff6b6b; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">Test Google Function</button>
+            <button onclick="inlineTest()" style="padding: 10px 20px; background: white; color: #ff6b6b; border: none; border-radius: 5px; cursor: pointer;">Inline Test</button>
+        </div>
+        <nav>
+            <div class="logo">SOHO</div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#rooms">Rooms</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="room-link" data-room="queen">Queen Bed Room</a></li>
+                        <li><a href="#" class="room-link" data-room="king">King Bed Room</a></li>
+                    </ul>
+                </li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#explore">Explore Vijayawada</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="book-now">
+                <a href="#booking" class="btn">Book Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Modern Comfort, Vijayawada Charm</h1>
+            <p>Your luxurious stay in the heart of the city</p>
+            <div class="booking-widget">
+                <form class="quick-book">
+                    <div class="form-group">
+                        <label for="check-in">Check-in</label>
+                        <input type="date" id="check-in" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">Check-out</label>
+                        <input type="date" id="check-out" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Guests</label>
+                        <div class="guest-select">
+                            <select id="adults" required>
+                                <option value="1">1 Adult</option>
+                                <option value="2">2 Adults</option>
+                                <option value="3">3 Adults</option>
+                            </select>
+                            <select id="children">
+                                <option value="0">0 Children</option>
+                                <option value="1">1 Child</option>
+                                <option value="2">2 Children</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-large">Check Availability</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="intro">
+        <div class="container">
+            <p class="intro-text">Welcome to Soho - VJA Digital Gateway, where modern luxury meets traditional hospitality. Located opposite Aplus Convention Center in Municipal Employees Colony, Vijayawada, we offer a perfect blend of comfort, convenience, and exceptional service. Minutes away from Kanaka Durga Temple and major business districts, our hotel is ideal for both leisure and business travelers.</p>
+        </div>
+    </section>
+
+    <section id="rooms" class="rooms">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Rooms</h2>
+                <p>Choose your perfect stay</p>
+            </div>
+            <div class="room-grid">
+                <div class="room-card">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800" alt="Queen Bed Room">
+                    <div class="room-info">
+                        <h3>Queen Bed Room</h3>
+                        <p>Ideal for couples or solo travelers</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> Queen Bed</span>
+                            <span><i class="fas fa-ruler-combined"></i> 250 sq ft</span>
+                            <span><i class="fas fa-user-friends"></i> 2 Guests</span>
+                        </div>
+                        <div class="price">From ₹2,999/night*</div>
+                        <a href="queen-room.html" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800" alt="King Bed Room">
+                    <div class="room-info">
+                        <h3>King Bed Room</h3>
+                        <p>Spacious comfort for families</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-ruler-combined"></i> 350 sq ft</span>
+                            <span><i class="fas fa-user-friends"></i> 3 Guests</span>
+                        </div>
+                        <div class="price">From ₹3,999/night*</div>
+                        <a href="king-room.html" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <p class="price-note">*Prices are exclusive of GST</p>
+        </div>
+    </section>
+
+    <section id="amenities" class="amenities">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hotel Amenities</h2>
+                <p>Your comfort is our priority</p>
+            </div>
+            <div class="amenities-grid">
+                <div class="amenity">
+                    <i class="fas fa-wifi"></i>
+                    <h3>Free High-Speed WiFi</h3>
+                    <p>Stay connected with complimentary high-speed internet</p>
+                </div>
+                <div class="amenity">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Complimentary Breakfast</h3>
+                    <p>Start your day with our delicious breakfast spread</p>
+                </div>
+                <div class="amenity">
+                    <i class="fas fa-parking"></i>
+                    <h3>Free Parking</h3>
+                    <p>Secure on-site parking for your vehicle</p>
+                </div>
+                <div class="amenity">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Reception</h3>
+                    <p>Round-the-clock assistance for your needs</p>
+                </div>
+                <div class="amenity">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Air Conditioning</h3>
+                    <p>Climate control in all rooms and common areas</p>
+                </div>
+                <div class="amenity">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>24/7 Security</h3>
+                    <p>CCTV surveillance and security personnel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Prime Location</h2>
+                <p>Discover Vijayawada from here</p>
+            </div>
+            <div class="location-content">
+                <div class="location-images">
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1623091411395-09e79fdbfcf5?auto=format&fit=crop&w=800" alt="Kanaka Durga Temple" class="main-image">
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30600.539432657713!2d80.61742571083983!3d16.510000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fab1557878bd%3A0xc65e7c2f139bb652!2sMunicipal%20Employees%20Colony%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520010!5e0!3m2!1sen!2sin!4v1681486800000!5m2!1sen!2sin"
+                                width="100%"
+                                height="100%"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-info">
+                    <h3>Minutes from Key Attractions</h3>
+                    <ul>
+                        <li><i class="fas fa-building"></i> Adjacent to Aplus Convention Center</li>
+                        <li><i class="fas fa-landmark"></i> 15 mins to Kanaka Durga Temple (4.5 km)</li>
+                        <li><i class="fas fa-water"></i> 12 mins to Prakasam Barrage (3.8 km)</li>
+                        <li><i class="fas fa-train"></i> 8 mins to Vijayawada Railway Station (2.5 km)</li>
+                        <li><i class="fas fa-plane"></i> 25 mins to Vijayawada International Airport (20 km)</li>
+                        <li><i class="fas fa-shopping-bag"></i> 5 mins to PVP Square Mall (1.2 km)</li>
+                        <li><i class="fas fa-hospital"></i> 3 mins to Manipal Hospital (0.8 km)</li>
+                    </ul>
+                    <a href="explore.html" class="btn">Explore Vijayawada</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="branches" class="branches">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Branches</h2>
+                <p>Find us across Vijayawada</p>
+            </div>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="images/SarovarMess1.jpg" alt="Sarovar Mess, Gandhi Nagar">
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-hotel"></i> Sarovar Mess</h3>
+                        <p class="branch-location"><i class="fas fa-map-marker-alt"></i> Gandhi Nagar, Vijayawada</p>
+                        <p class="branch-description">Our flagship location offering premium accommodation with modern amenities and excellent service.</p>
+                        <div class="branch-features">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-parking"></i> Parking</span>
+                            <span><i class="fas fa-utensils"></i> Restaurant</span>
+                        </div>
+                        <div class="branch-contact">
+                            <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                            <p><i class="fas fa-envelope"></i> gandhinagar@sohovja.com</p>
+                        </div>
+                        <button class="btn">View on Google</button>
+                    </div>
+                </div>
+                
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400" alt="Sarovar, Governerpet">
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-hotel"></i> Sarovar</h3>
+                        <p class="branch-location"><i class="fas fa-map-marker-alt"></i> Governerpet, Vijayawada</p>
+                        <p class="branch-description">Located in the heart of Governerpet, providing comfortable stays with easy access to business districts.</p>
+                        <div class="branch-features">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-parking"></i> Parking</span>
+                            <span><i class="fas fa-coffee"></i> Coffee Shop</span>
+                        </div>
+                        <div class="branch-contact">
+                            <p><i class="fas fa-phone"></i> +91 98765 43211</p>
+                            <p><i class="fas fa-envelope"></i> governerpet@sohovja.com</p>
+                        </div>
+                        <button class="btn">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="branch-card upcoming">
+                    <div class="branch-image">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=400" alt="Sarovar Aplus, MG Road">
+                        <div class="upcoming-badge">Coming Soon</div>
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-hotel"></i> Sarovar Aplus</h3>
+                        <p class="branch-location"><i class="fas fa-map-marker-alt"></i> MG Road, Vijayawada</p>
+                        <p class="branch-description">Our newest luxury property coming soon! Premium amenities and world-class service in the heart of MG Road.</p>
+                        <div class="branch-features">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-swimming-pool"></i> Swimming Pool</span>
+                            <span><i class="fas fa-dumbbell"></i> Gym</span>
+                        </div>
+                        <div class="branch-contact">
+                            <p><i class="fas fa-calendar"></i> Opening: Q1 2025</p>
+                            <p><i class="fas fa-envelope"></i> mgroad@sohovja.com</p>
+                        </div>
+                        <button class="btn" disabled>Notify When Open</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Photo Gallery</h2>
+                <p>Take a virtual tour of our hotel</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=400" alt="Queen Room">
+                    <div class="gallery-overlay">
+                        <h4>Queen Bed Room</h4>
+                        <p>Spacious and comfortable</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400" alt="King Room">
+                    <div class="gallery-overlay">
+                        <h4>King Bed Room</h4>
+                        <p>Luxury and elegance</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400" alt="Hotel Lobby">
+                    <div class="gallery-overlay">
+                        <h4>Hotel Lobby</h4>
+                        <p>Welcoming atmosphere</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=400" alt="Bathroom">
+                    <div class="gallery-overlay">
+                        <h4>Modern Bathroom</h4>
+                        <p>Clean and modern</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=400" alt="Dining Area">
+                    <div class="gallery-overlay">
+                        <h4>Dining Area</h4>
+                        <p>Delicious meals</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=400" alt="Hotel Exterior">
+                    <div class="gallery-overlay">
+                        <h4>Hotel Exterior</h4>
+                        <p>Beautiful architecture</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="explore" class="explore">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore Vijayawada</h2>
+                <p>Discover the best attractions near our hotel</p>
+            </div>
+            <div class="explore-grid">
+                <div class="explore-item">
+                    <div class="explore-image">
+                        <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=400" alt="Kanaka Durga Temple">
+                    </div>
+                    <div class="explore-content">
+                        <h3><i class="fas fa-om"></i> Kanaka Durga Temple</h3>
+                        <p>Just minutes away from our hotel, this ancient temple dedicated to Goddess Durga offers spiritual solace and stunning views of the Krishna River.</p>
+                        <div class="explore-details">
+                            <span class="distance"><i class="fas fa-map-marker-alt"></i> 2.5 km away</span>
+                            <span class="time"><i class="fas fa-clock"></i> 5 min drive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div class="explore-image">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400" alt="One Town Market">
+                    </div>
+                    <div class="explore-content">
+                        <h3><i class="fas fa-shopping-bag"></i> One Town Market</h3>
+                        <p>Experience the vibrant local culture at this bustling market known for traditional textiles, jewelry, and street food.</p>
+                        <div class="explore-details">
+                            <span class="distance"><i class="fas fa-map-marker-alt"></i> 3 km away</span>
+                            <span class="time"><i class="fas fa-clock"></i> 8 min drive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div class="explore-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400" alt="Indrakeeladri Hills">
+                    </div>
+                    <div class="explore-content">
+                        <h3><i class="fas fa-mountain"></i> Indrakeeladri Hills</h3>
+                        <p>Hike up these scenic hills for panoramic views of Vijayawada and the Krishna River.</p>
+                        <div class="explore-details">
+                            <span class="distance"><i class="fas fa-map-marker-alt"></i> 1.5 km away</span>
+                            <span class="time"><i class="fas fa-clock"></i> 3 min drive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div class="explore-image">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d14c3?auto=format&fit=crop&w=400" alt="Vijayawada Junction">
+                    </div>
+                    <div class="explore-content">
+                        <h3><i class="fas fa-train"></i> Vijayawada Junction</h3>
+                        <p>Major railway hub connecting to all major cities in India.</p>
+                        <div class="explore-details">
+                            <span class="distance"><i class="fas fa-map-marker-alt"></i> 4 km away</span>
+                            <span class="time"><i class="fas fa-clock"></i> 10 min drive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" class="offers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Special Offers</h2>
+                <p>Exclusive deals for our valued guests</p>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-badge">Limited Time</div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400" alt="Weekend Getaway">
+                    </div>
+                    <div class="offer-content">
+                        <h3>Weekend Getaway</h3>
+                        <p>Book 2 nights, get 1 night free! Perfect for weekend relaxation.</p>
+                        <div class="offer-price">
+                            <span class="original">₹8,997</span>
+                            <span class="discounted">₹5,998</span>
+                        </div>
+                        <button class="btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">New</div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400" alt="Business Traveler">
+                    </div>
+                    <div class="offer-content">
+                        <h3>Business Traveler</h3>
+                        <p>Extended stay discount for business travelers. Book 7+ nights and save 20%.</p>
+                        <div class="offer-price">
+                            <span class="original">₹20,993</span>
+                            <span class="discounted">₹16,794</span>
+                        </div>
+                        <button class="btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">Popular</div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=400" alt="Family Package">
+                    </div>
+                    <div class="offer-content">
+                        <h3>Family Package</h3>
+                        <p>Special rates for families with children. Includes complimentary breakfast.</p>
+                        <div class="offer-price">
+                            <span class="original">₹3,999</span>
+                            <span class="discounted">₹3,199</span>
+                        </div>
+                        <button class="btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Guest Experiences</h2>
+                <p>What our guests say about us</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <p>"Perfect location near Aplus Convention Center! The rooms are spacious and modern, and the staff went above and beyond to make our stay comfortable. The complimentary breakfast was delicious."</p>
+                        <div class="testimonial-author">
+                            <span class="name">Rajesh Kumar</span>
+                            <span class="details">Business Traveler</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"We stayed here during our family trip to Vijayawada. The hotel's proximity to Kanaka Durga Temple and other attractions made it very convenient. Clean rooms, friendly staff, and great value for money!"</p>
+                        <div class="testimonial-author">
+                            <span class="name">Priya Reddy</span>
+                            <span class="details">Family Vacation</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Outstanding service and modern amenities! The high-speed WiFi was perfect for my work needs, and the location in Municipal Employees Colony is peaceful yet accessible. Will definitely return!"</p>
+                        <div class="testimonial-author">
+                            <span class="name">Arun Sharma</span>
+                            <span class="details">Corporate Stay</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testimonial-dots"></div>
+                    <button class="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Reach Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Opposite Aplus Convention Center, Municipal Employees Colony, Vijayawada - 520010</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 98765 43210</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@sohovja.com">info@sohovja.com</a></p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Phone" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit" class="btn btn-large">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SOHO</h3>
+                <p>Modern Comfort, Vijayawada Charm</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#" class="room-link" data-room="queen">Queen Room</a></li>
+                    <li><a href="#" class="room-link" data-room="king">King Room</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#branches">Branches</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#explore">Explore Vijayawada</a></li>
+                    <li><a href="#offers">Offers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="cancellation.html">Cancellation Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Soho - VJA Digital Gateway. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Containers -->
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Photo Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=400" alt="Queen Room">
+                    <p>Queen Bed Room</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400" alt="King Room">
+                    <p>King Bed Room</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400" alt="Hotel Lobby">
+                    <p>Hotel Lobby</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=400" alt="Bathroom">
+                    <p>Modern Bathroom</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=400" alt="Dining Area">
+                    <p>Dining Area</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=400" alt="Hotel Exterior">
+                    <p>Hotel Exterior</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="explore-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Explore Vijayawada</h2>
+            <div class="explore-content">
+                <div class="explore-item">
+                    <h3><i class="fas fa-om"></i> Kanaka Durga Temple</h3>
+                    <p>Just minutes away from our hotel, this ancient temple dedicated to Goddess Durga offers spiritual solace and stunning views of the Krishna River.</p>
+                    <span class="distance">Distance: 2.5 km</span>
+                </div>
+                <div class="explore-item">
+                    <h3><i class="fas fa-shopping-bag"></i> One Town Market</h3>
+                    <p>Experience the vibrant local culture at this bustling market known for traditional textiles, jewelry, and street food.</p>
+                    <span class="distance">Distance: 3 km</span>
+                </div>
+                <div class="explore-item">
+                    <h3><i class="fas fa-mountain"></i> Indrakeeladri Hills</h3>
+                    <p>Hike up these scenic hills for panoramic views of Vijayawada and the Krishna River.</p>
+                    <span class="distance">Distance: 1.5 km</span>
+                </div>
+                <div class="explore-item">
+                    <h3><i class="fas fa-train"></i> Vijayawada Junction</h3>
+                    <p>Major railway hub connecting to all major cities in India.</p>
+                    <span class="distance">Distance: 4 km</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="offers-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Special Offers</h2>
+            <div class="offers-content">
+                <div class="offer-card">
+                    <div class="offer-badge">Limited Time</div>
+                    <h3>Weekend Getaway</h3>
+                    <p>Book 2 nights, get 1 night free! Perfect for weekend relaxation.</p>
+                    <div class="offer-price">
+                        <span class="original">₹8,997</span>
+                        <span class="discounted">₹5,998</span>
+                    </div>
+                    <button class="btn">Book Now</button>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">New</div>
+                    <h3>Business Traveler</h3>
+                    <p>Extended stay discount for business travelers. Book 7+ nights and save 20%.</p>
+                    <div class="offer-price">
+                        <span class="original">₹20,993</span>
+                        <span class="discounted">₹16,794</span>
+                    </div>
+                    <button class="btn">Book Now</button>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">Popular</div>
+                    <h3>Family Package</h3>
+                    <p>Special rates for families with children. Includes complimentary breakfast.</p>
+                    <div class="offer-price">
+                        <span class="original">₹3,999</span>
+                        <span class="discounted">₹3,199</span>
+                    </div>
+                    <button class="btn">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="branches-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Our Branches</h2>
+            <div class="branches-content">
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="images/SarovarMess1.jpg" alt="Sarovar Mess, Gandhi Nagar">
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-hotel"></i> Sarovar Mess</h3>
+                        <p class="branch-location"><i class="fas fa-map-marker-alt"></i> Gandhi Nagar, Vijayawada</p>
+                        <p class="branch-description">Our flagship location offering premium accommodation with modern amenities and excellent service.</p>
+                        <div class="branch-features">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-parking"></i> Parking</span>
+                            <span><i class="fas fa-utensils"></i> Restaurant</span>
+                        </div>
+                        <div class="branch-contact">
+                            <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                            <p><i class="fas fa-envelope"></i> gandhinagar@sohovja.com</p>
+                        </div>
+                        <button class="btn">View on Google</button>
+                    </div>
+                </div>
+                
+                <div class="branch-card">
+                    <div class="branch-image">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400" alt="Sarovar, Governerpet">
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-hotel"></i> Sarovar</h3>
+                        <p class="branch-location"><i class="fas fa-map-marker-alt"></i> Governerpet, Vijayawada</p>
+                        <p class="branch-description">Located in the heart of Governerpet, providing comfortable stays with easy access to business districts.</p>
+                        <div class="branch-features">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-parking"></i> Parking</span>
+                            <span><i class="fas fa-coffee"></i> Coffee Shop</span>
+                        </div>
+                        <div class="branch-contact">
+                            <p><i class="fas fa-phone"></i> +91 98765 43211</p>
+                            <p><i class="fas fa-envelope"></i> governerpet@sohovja.com</p>
+                        </div>
+                        <button class="btn">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="branch-card upcoming">
+                    <div class="branch-image">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=400" alt="Sarovar Aplus, MG Road">
+                        <div class="upcoming-badge">Coming Soon</div>
+                    </div>
+                    <div class="branch-info">
+                        <h3><i class="fas fa-hotel"></i> Sarovar Aplus</h3>
+                        <p class="branch-location"><i class="fas fa-map-marker-alt"></i> MG Road, Vijayawada</p>
+                        <p class="branch-description">Our newest luxury property coming soon! Premium amenities and world-class service in the heart of MG Road.</p>
+                        <div class="branch-features">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-swimming-pool"></i> Swimming Pool</span>
+                            <span><i class="fas fa-dumbbell"></i> Gym</span>
+                        </div>
+                        <div class="branch-contact">
+                            <p><i class="fas fa-calendar"></i> Opening: Q1 2025</p>
+                            <p><i class="fas fa-envelope"></i> mgroad@sohovja.com</p>
+                        </div>
+                        <button class="btn" disabled>Notify When Open</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Inline test to see if JavaScript is working
+        console.log('Inline script loaded');
+        function inlineTest() {
+            alert('Inline function works!');
+        }
+    </script>
+</body>
+</html> 
