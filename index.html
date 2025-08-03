@@ -7,74 +7,146 @@
     <title>Soho - VJA Digital Gateway | Modern Comfort, Vijayawada Charm</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div style="text-align: center; padding: 10px; background: #ff6b6b; color: white;">
-            <button onclick="simpleTest()" style="padding: 10px 20px; background: white; color: #ff6b6b; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">Simple Test</button>
-            <button onclick="openGoogleSearch('Sarovar Mess')" style="padding: 10px 20px; background: white; color: #ff6b6b; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">Test Google Function</button>
-            <button onclick="inlineTest()" style="padding: 10px 20px; background: white; color: #ff6b6b; border: none; border-radius: 5px; cursor: pointer;">Inline Test</button>
-        </div>
-        <nav>
-            <div class="logo">SOHO</div>
+                <nav>
+            <ul class="nav-links">
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li class="logo-center">
+                    <a href="#home">SOHO - VJA</a>
+                </li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
             <div class="nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li class="dropdown">
-                    <a href="#rooms">Rooms</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" class="room-link" data-room="queen">Queen Bed Room</a></li>
-                        <li><a href="#" class="room-link" data-room="king">King Bed Room</a></li>
-                    </ul>
-                </li>
-                <li><a href="#amenities">Amenities</a></li>
-                <li><a href="#branches">Branches</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#explore">Explore Vijayawada</a></li>
-                <li><a href="#offers">Offers</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="book-now">
-                <a href="#booking" class="btn">Book Now</a>
             </div>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Modern Comfort, Vijayawada Charm</h1>
-            <p>Your luxurious stay in the heart of the city</p>
+            <h1>Where Luxury Meets Heritage</h1>
+            <p>Experience the perfect blend of modern comfort and traditional hospitality</p>
             <div class="booking-widget">
                 <form class="quick-book">
-                    <div class="form-group">
-                        <label for="check-in">Check-in</label>
-                        <input type="date" id="check-in" required>
+                    <div class="search-container">
+                        <div class="search-field dates-field">
+                            <div class="field-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="field-content">
+                                <label>Dates</label>
+                                <div class="dates-display" onclick="toggleDates()">
+                                    <div class="date-range">
+                                        <span id="check-in-display">Select dates</span>
+                                        <span class="date-separator">-</span>
+                                        <span id="check-out-display">Select dates</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="search-field travelers-field">
+                            <div class="field-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="field-content">
+                                <label>Travelers</label>
+                                <div class="travelers-display" onclick="toggleTravelers()">
+                                    <span id="travelers-count">1 room, 1 guest</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="search-btn">
+                            <i class="fas fa-search"></i>
+                            <span>Search</span>
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <label for="check-out">Check-out</label>
-                        <input type="date" id="check-out" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="guests">Guests</label>
-                        <div class="guest-select">
-                            <select id="adults" required>
-                                <option value="1">1 Adult</option>
-                                <option value="2">2 Adults</option>
-                                <option value="3">3 Adults</option>
-                            </select>
-                            <select id="children">
-                                <option value="0">0 Children</option>
-                                <option value="1">1 Child</option>
-                                <option value="2">2 Children</option>
-                            </select>
+                    
+                    <!-- Dates Dropdown -->
+                    <div class="dates-dropdown" id="dates-dropdown">
+                        <div class="dates-section">
+                            <div class="dates-header">
+                                <h4>Select Dates</h4>
+                                <button type="button" class="close-dates" onclick="closeDates()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="date-inputs">
+                                <div class="date-input-group">
+                                    <label>Check-in</label>
+                                    <input type="date" id="check-in" required>
+                                </div>
+                                <div class="date-input-group">
+                                    <label>Check-out</label>
+                                    <input type="date" id="check-out" required>
+                                </div>
+                            </div>
+                            
+                            <div class="dates-actions">
+                                <button type="button" class="apply-btn" onclick="applyDates()">Apply</button>
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-large">Check Availability</button>
+                    
+                    <!-- Travelers Dropdown -->
+                    <div class="travelers-dropdown" id="travelers-dropdown">
+                        <div class="travelers-section">
+                            <div class="travelers-header">
+                                <h4>Travelers</h4>
+                                <button type="button" class="close-travelers" onclick="closeTravelers()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="traveler-type">
+                                <div class="traveler-info">
+                                    <div class="traveler-label">
+                                        <i class="fas fa-user"></i>
+                                        <span>Adults</span>
+                                        <small>Ages 18+</small>
+                                    </div>
+                                </div>
+                                <div class="traveler-counter">
+                                    <button type="button" class="counter-btn" onclick="decreaseAdults()">−</button>
+                                    <span id="adults-count">1</span>
+                                    <button type="button" class="counter-btn" onclick="increaseAdults()">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="traveler-type">
+                                <div class="traveler-info">
+                                    <div class="traveler-label">
+                                        <i class="fas fa-child"></i>
+                                        <span>Children</span>
+                                        <small>Ages 0-17</small>
+                                    </div>
+                                </div>
+                                <div class="traveler-counter">
+                                    <button type="button" class="counter-btn" onclick="decreaseChildren()">−</button>
+                                    <span id="children-count">0</span>
+                                    <button type="button" class="counter-btn" onclick="increaseChildren()">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="travelers-actions">
+                                <button type="button" class="apply-btn" onclick="applyTravelers()">Apply</button>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -759,6 +831,46 @@
         console.log('Inline script loaded');
         function inlineTest() {
             alert('Inline function works!');
+        }
+        
+        // Guest dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up guest dropdown');
+            
+            const guestDropdown = document.querySelector('.guest-dropdown');
+            const guestDisplay = document.querySelector('.guest-display');
+            
+            console.log('Guest dropdown element:', guestDropdown);
+            console.log('Guest display element:', guestDisplay);
+            
+            if (guestDisplay) {
+                guestDisplay.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Guest display clicked!');
+                    guestDropdown.classList.toggle('active');
+                    console.log('Dropdown active:', guestDropdown.classList.contains('active'));
+                });
+            }
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (guestDropdown && !guestDropdown.contains(e.target)) {
+                    guestDropdown.classList.remove('active');
+                }
+            });
+        });
+        
+        // Simple toggle function
+        function toggleGuestDropdown() {
+            console.log('toggleGuestDropdown called');
+            const guestDropdown = document.querySelector('.guest-dropdown');
+            if (guestDropdown) {
+                guestDropdown.classList.toggle('active');
+                console.log('Dropdown toggled, active:', guestDropdown.classList.contains('active'));
+            } else {
+                console.log('Guest dropdown not found');
+            }
         }
     </script>
 </body>

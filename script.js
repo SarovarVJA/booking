@@ -174,14 +174,35 @@ function bookRoom(roomType, nights, totalPrice) {
         Our team will contact you shortly to confirm your reservation.`);
 }
 
-// Set minimum date for check-in and check-out
-const today = new Date().toISOString().split('T')[0];
-document.getElementById('check-in').min = today;
-document.getElementById('check-out').min = today;
-
-// Update check-out minimum date when check-in is selected
-document.getElementById('check-in').addEventListener('change', function() {
-    document.getElementById('check-out').min = this.value;
+// Set default and minimum dates for check-in and check-out
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    
+    const todayString = today.toISOString().split('T')[0];
+    const tomorrowString = tomorrow.toISOString().split('T')[0];
+    
+    const checkInInput = document.getElementById('check-in');
+    const checkOutInput = document.getElementById('check-out');
+    
+    if (checkInInput && checkOutInput) {
+        // Set minimum dates
+        checkInInput.min = todayString;
+        checkOutInput.min = todayString;
+        
+        // Set default values
+        checkInInput.value = todayString;
+        checkOutInput.value = tomorrowString;
+        
+        // Update display
+        updateDatesDisplay(todayString, tomorrowString);
+        
+        // Update check-out minimum date when check-in is selected
+        checkInInput.addEventListener('change', function() {
+            checkOutInput.min = this.value;
+        });
+    }
 });
 
 // Combined DOMContentLoaded event listener
@@ -379,6 +400,35 @@ document.addEventListener('DOMContentLoaded', function() {
             alert(`Booking request received for ${offerName} offer. Our team will contact you shortly to confirm your reservation.`);
         });
     });
+
+    // Guest dropdown toggle functionality
+    setTimeout(function() {
+        const guestDropdown = document.querySelector('.guest-dropdown');
+        const guestDisplay = document.querySelector('.guest-display');
+        
+        console.log('Guest dropdown found:', guestDropdown);
+        console.log('Guest display found:', guestDisplay);
+        
+        if (guestDisplay && guestDropdown) {
+            guestDisplay.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Guest display clicked');
+                guestDropdown.classList.toggle('active');
+                console.log('Dropdown active class:', guestDropdown.classList.contains('active'));
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!guestDropdown.contains(e.target)) {
+                    guestDropdown.classList.remove('active');
+                }
+            });
+        }
+        
+        // Initialize travelers count
+        updateTravelersCount();
+    }, 100);
 });
 
 // Function to scroll to booking section
@@ -393,6 +443,136 @@ function scrollToBooking() {
     });
     document.body.style.overflow = 'auto';
 }
+
+// Guest Selector Functionality
+let adultsCount = 1;
+let childrenCount = 0;
+
+function updateTravelersCount() {
+    const totalGuests = adultsCount + childrenCount;
+    const travelersCountElement = document.getElementById('travelers-count');
+    const adultsCountElement = document.getElementById('adults-count');
+    const childrenCountElement = document.getElementById('children-count');
+    
+    if (travelersCountElement) {
+        travelersCountElement.textContent = `1 room, ${totalGuests} guest${totalGuests !== 1 ? 's' : ''}`;
+    }
+    if (adultsCountElement) {
+        adultsCountElement.textContent = adultsCount;
+    }
+    if (childrenCountElement) {
+        childrenCountElement.textContent = childrenCount;
+    }
+    
+    // Update button states
+    const decreaseAdultsBtns = document.querySelectorAll('.counter-btn[onclick="decreaseAdults()"]');
+    const decreaseChildrenBtns = document.querySelectorAll('.counter-btn[onclick="decreaseChildren()"]');
+    
+    decreaseAdultsBtns.forEach(btn => {
+        btn.disabled = adultsCount <= 1;
+    });
+    decreaseChildrenBtns.forEach(btn => {
+        btn.disabled = childrenCount <= 0;
+    });
+}
+
+function increaseAdults() {
+    if (adultsCount < 10) {
+        adultsCount++;
+        updateTravelersCount();
+    }
+}
+
+function decreaseAdults() {
+    if (adultsCount > 1) {
+        adultsCount--;
+        updateTravelersCount();
+    }
+}
+
+function increaseChildren() {
+    if (childrenCount < 6) {
+        childrenCount++;
+        updateTravelersCount();
+    }
+}
+
+function decreaseChildren() {
+    if (childrenCount > 0) {
+        childrenCount--;
+        updateTravelersCount();
+    }
+}
+
+// Dates dropdown functions
+function toggleDates() {
+    const datesDropdown = document.getElementById('dates-dropdown');
+    if (datesDropdown) {
+        datesDropdown.classList.toggle('active');
+        console.log('Dates dropdown toggled, active:', datesDropdown.classList.contains('active'));
+    }
+}
+
+function closeDates() {
+    const datesDropdown = document.getElementById('dates-dropdown');
+    if (datesDropdown) {
+        datesDropdown.classList.remove('active');
+    }
+}
+
+function applyDates() {
+    const checkIn = document.getElementById('check-in').value;
+    const checkOut = document.getElementById('check-out').value;
+    
+    if (checkIn && checkOut) {
+        updateDatesDisplay(checkIn, checkOut);
+    }
+    
+    closeDates();
+    console.log('Dates applied:', checkIn, 'to', checkOut);
+}
+
+function updateDatesDisplay(checkIn, checkOut) {
+    const checkInDisplay = document.getElementById('check-in-display');
+    const checkOutDisplay = document.getElementById('check-out-display');
+    
+    if (checkInDisplay && checkOutDisplay) {
+        const checkInDate = new Date(checkIn);
+        const checkOutDate = new Date(checkOut);
+        
+        checkInDisplay.textContent = checkInDate.toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric' 
+        });
+        checkOutDisplay.textContent = checkOutDate.toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric' 
+        });
+    }
+}
+
+// Travelers dropdown functions
+function toggleTravelers() {
+    const travelersDropdown = document.getElementById('travelers-dropdown');
+    if (travelersDropdown) {
+        travelersDropdown.classList.toggle('active');
+        console.log('Travelers dropdown toggled, active:', travelersDropdown.classList.contains('active'));
+    }
+}
+
+function closeTravelers() {
+    const travelersDropdown = document.getElementById('travelers-dropdown');
+    if (travelersDropdown) {
+        travelersDropdown.classList.remove('active');
+    }
+}
+
+function applyTravelers() {
+    closeTravelers();
+    console.log('Travelers applied:', adultsCount, 'adults,', childrenCount, 'children');
+}
+
+
 
 // Function to open Google search for branches
 function openGoogleSearch(branchName) {
