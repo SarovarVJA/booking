@@ -75,24 +75,23 @@ window.addEventListener('scroll', animateOnScroll);
 animateOnScroll();
 
 // Mobile menu toggle
-const createMobileMenu = () => {
-    const nav = document.querySelector('nav');
-    const mobileMenuBtn = document.createElement('button');
-    mobileMenuBtn.classList.add('mobile-menu-btn');
-    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-    
-    mobileMenuBtn.addEventListener('click', () => {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('show');
-    });
-    
-    nav.insertBefore(mobileMenuBtn, nav.firstChild);
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-// Initialize mobile menu on small screens
-if (window.innerWidth <= 768) {
-    createMobileMenu();
-}
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+});
 
 // Add loading animation
 window.addEventListener('load', () => {

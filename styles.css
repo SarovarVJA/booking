@@ -67,12 +67,18 @@ header.scrolled {
 
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem var(--container-padding);
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
+}
+
+@media (min-width: 1024px) {
+    nav {
+        justify-content: space-between;
+    }
 }
 
 .logo {
@@ -90,7 +96,7 @@ header.scrolled .logo {
 
 .logo-center {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
     color: #ffffff;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2);
@@ -105,7 +111,7 @@ header.scrolled .logo {
 
 @media (min-width: 1024px) {
     .logo-center {
-        font-size: 3.5rem;
+        font-size: 3rem;
         margin: 0 3rem;
     }
 }
@@ -169,34 +175,35 @@ header.scrolled .logo-center a {
     animation: none;
 }
 
-.nav-toggle {
+
+.menu-toggle {
     display: block;
     cursor: pointer;
     z-index: 1001;
+    background: none;
+    border: none;
+    padding: 0.25rem;
 }
 
-@media (min-width: 1024px) {
-    .nav-toggle {
-        display: none;
-    }
-}
-
-@media (min-width: 1024px) {
-    .nav-toggle {
-        display: none;
-    }
-}
-
-.nav-toggle span {
+.menu-toggle span {
     display: block;
-    width: 25px;
+    width: 20px;
     height: 2px;
-    background-color: var(--white);
-    margin: 5px 0;
-    transition: var(--transition);
+    background-color: #ffffff;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: 0.3s;
 }
 
-header.scrolled .nav-toggle span {
+@media (min-width: 1024px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* removed duplicate legacy .nav-toggle span block to keep sleek sizes */
+
+header.scrolled .menu-toggle span {
     background-color: var(--primary-color);
 }
 
@@ -205,16 +212,25 @@ header.scrolled .nav-toggle span {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
+    width: 68%;
+    max-width: 320px;
     height: 100vh;
-    background-color: var(--white);
-    padding: 80px 2rem;
-    transition: var(--transition);
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    background-color: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    padding: 64px 1.25rem;
+    transition: all 0.3s ease;
+    box-shadow: -8px 0 24px rgba(0,0,0,0.18);
+    border-radius: 12px 0 0 12px;
     flex-direction: column;
     gap: 0.5rem;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: flex-start;
+    z-index: 1000;
+}
+
+.nav-links.active {
+    display: flex;
+    right: 0;
 }
 
 @media (min-width: 1024px) {
@@ -229,28 +245,8 @@ header.scrolled .nav-toggle span {
         flex-direction: row;
         gap: 2rem;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
     }
-}
-
-@media (min-width: 1024px) {
-    .nav-links {
-        display: flex;
-        position: static;
-        width: auto;
-        height: 80px;
-        padding: 0;
-        background-color: transparent;
-        box-shadow: none;
-        gap: 2rem;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-.nav-links.active {
-    display: block;
-    right: 0;
 }
 
 .nav-links li {
@@ -281,26 +277,26 @@ header.scrolled .nav-toggle span {
 
 .nav-links a {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
+    color: #222222;
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.9rem !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0.2px;
+    transition: all 0.25s ease;
     position: relative;
     display: flex;
     align-items: center;
-    height: auto;
-    opacity: 1;
-    padding: 0.5rem 0;
+    height: 44px;
+    border-radius: 10px;
+    padding: 0 0.75rem;
 }
 
 @media (min-width: 1024px) {
     .nav-links a {
         color: rgba(255, 255, 255, 0.85);
         font-weight: 400;
-        font-size: 0.85rem;
+        font-size: 0.85rem !important;
         letter-spacing: 1px;
         height: 100%;
         opacity: 0.8;
@@ -309,12 +305,6 @@ header.scrolled .nav-toggle span {
 }
 
 @media (min-width: 1024px) {
-    .nav-links a {
-        color: var(--white);
-        font-size: 0.9rem;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
     header.scrolled .nav-links a {
         color: var(--primary-color);
     }
@@ -332,13 +322,8 @@ header.scrolled .nav-toggle span {
 }
 
 .nav-links a:hover {
-    color: #ffffff;
-    opacity: 1;
-    transform: translateY(-1px);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    background: rgba(0,0,0,0.04);
+    transform: translateX(2px);
 }
 
 /* Gray out specific navigation links */
@@ -412,11 +397,13 @@ header.scrolled .nav-toggle span {
     transform: translateY(20px);
     animation: fadeInUp 1s ease forwards;
     letter-spacing: 0.5px;
+    display: none;
 }
 
 @media (min-width: 768px) {
     .hero h1 {
         font-size: 1.8rem;
+        display: block;
     }
 }
 
@@ -858,11 +845,15 @@ header.scrolled .nav-toggle span {
 @media (max-width: 768px) {
     .search-container {
         flex-direction: column;
+        height: auto;
+        gap: 0;
     }
     
     .search-field {
         border-right: none;
         border-bottom: 1px solid #e0e0e0;
+        min-height: 60px;
+        padding: 1rem 1.5rem;
     }
     
     .search-field:last-child {
@@ -872,6 +863,8 @@ header.scrolled .nav-toggle span {
     .search-btn {
         width: 100%;
         justify-content: center;
+        height: 60px;
+        margin-top: 0;
     }
 }
 
@@ -2141,3 +2134,38 @@ label {
     font-size: 1.2rem;
     font-weight: 600;
 } 
+
+/* Force navigation font size - added at end to override everything */
+.nav-links a {
+    font-size: 0.85rem !important;
+}
+
+@media (min-width: 1024px) {
+    .nav-links a {
+        font-size: 0.85rem !important;
+    }
+} 
+
+/* Mobile menu: blend with background (dark over hero, light after scroll) */
+@media (max-width: 1023px) {
+  header .nav-links {
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(10px);
+  }
+  header .nav-links a {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  header .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  header.scrolled .nav-links {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+  }
+  header.scrolled .nav-links a {
+    color: #222222;
+  }
+  header.scrolled .nav-links a:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
