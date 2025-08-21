@@ -1751,7 +1751,7 @@ label {
 .social-link:hover {
     background-color: var(--primary-color);
     transform: translateY(-2px);
-}
+} 
 
 /* Branches Section */
 .branches {
